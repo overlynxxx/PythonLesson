@@ -1,21 +1,37 @@
-class Car: 
-    __rate = 12 
-    def __init__(self, gas_amount): 
-        self.__gas_amount = gas_amount 
- 
-    @property 
-    def rate(self): 
-        return self.__rate 
-     
-    @rate.setter 
-    def rate(self, rate): 
-        self.__rate = rate 
- 
-    def way_calc(self): 
-            f = round(self.__gas_amount / self.__rate, 2) 
-            print(f'Бензина хватит на {f} км.') 
-f = Car(70) 
-f.way_calc() 
-f.rate = 15 
-f.way_calc() 
- 
+class Car:
+    __gas_amount = 80
+    __tank_amount = 100
+    __max_power = 0
+    __engine_kpd = 0.9
+    def __init__(self):
+        pass
+        
+    @property
+    def gas_amount(self):
+        return self.__gas_amount    
+    @gas_amount.setter
+    def gas_amount(self, gas_amount):
+        self.__gas_amount = gas_amount
+    
+    @property
+    def tank_amount(self):
+        return self.__tank_amount
+    @tank_amount.setter
+    def tank_amount(self, tank_amount):
+        self.__tank_amount = tank_amount
+
+    @property
+    def engine_kpd(self):
+        return self.__engine_kpd
+    @engine_kpd.setter
+    def engine_kpd(self, engine_kpd: float):
+        self.__engine_kpd = engine_kpd
+
+    def calc_power(self):
+        self.__max_power = (self.__gas_amount / self.__tank_amount) * self.__engine_kpd * 100
+        print(f'Максимальная мощность двигателя - {round(self.__max_power, 2)}%.')
+        
+    
+
+f = Car()
+f.calc_power()
