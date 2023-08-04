@@ -24,7 +24,7 @@ class Car:
     def engine_kpd(self):
         return self.__engine_kpd
     @engine_kpd.setter
-    def engine_kpd(self, engine_kpd: float):
+    def engine_kpd(self, engine_kpd):
         self.__engine_kpd = engine_kpd
 
     def calc_power(self):
