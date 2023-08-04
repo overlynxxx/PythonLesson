@@ -23,9 +23,6 @@ class Car:
     @property
     def engine_kpd(self):
         return self.__engine_kpd
-    @engine_kpd.setter
-    def engine_kpd(self, engine_kpd):
-        self.__engine_kpd = engine_kpd
 
     def calc_power(self):
         self.__max_power = (self.__gas_amount / self.__tank_amount) * self.__engine_kpd * 100
