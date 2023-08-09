@@ -3,6 +3,8 @@ class Car:
     __tank_amount = 100
     __max_power = 0
     __engine_kpd = 0.9
+    __max_speed = 200
+    __current_speed = 0 
     def __init__(self):
         pass
         
@@ -23,12 +25,27 @@ class Car:
     @property
     def engine_kpd(self):
         return self.__engine_kpd
+    
+    @property
+    def max_power(self):
+        return self.__max_power
+    
+    @property
+    def max_speed(self):
+        return self.__max_speed
+    @max_speed.setter
+    def max_speed(self, max_speed):
+        self.__max_speed = max_speed
 
-    def calc_power(self):
-        self.__max_power = (self.__gas_amount / self.__tank_amount) * self.__engine_kpd * 100
-        print(f'Максимальная мощность двигателя - {round(self.__max_power, 2)}%.')
-        
+    @property
+    def current_speed(self):
+        return self.__current_speed
+
+    __max_power = round((__gas_amount / __tank_amount) * __engine_kpd * 100, 2)
+    __current_speed = round((__max_power * __max_speed) / 100)
+
     
 
 f = Car()
-f.calc_power()
+data = f.current_speed
+print(data)
